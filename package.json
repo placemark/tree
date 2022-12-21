@@ -5,13 +5,13 @@
   "main": "index.js",
   "author": "Tom MacWright",
   "license": "MIT",
-  "main": "dist/rewind.cjs",
-  "module": "dist/rewind.es.mjs",
-  "browser": "dist/rewind.umd.js",
+  "main": "dist/tree.cjs",
+  "module": "dist/tree.es.mjs",
+  "browser": "dist/tree.umd.js",
   "typings": "dist/index.d.ts",
   "exports": {
-    "require": "./dist/rewind.cjs",
-    "default": "./dist/rewind.es.mjs"
+    "require": "./dist/tree.cjs",
+    "default": "./dist/tree.es.mjs"
   },
   "keywords": [
     "tree"

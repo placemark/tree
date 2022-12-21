@@ -1,5 +1,5 @@
-import { expect, describe, it } from "vitest";
-import { buildTree, pullNode } from "./tree";
+import { expect, describe, it } from 'vitest';
+import { buildTree, pullNode } from './index';
 
 interface Leaf {
   id: string;
@@ -11,28 +11,28 @@ interface Container {
   parentId: string | null;
 }
 
-describe("buildTree", () => {
-  it("base case", () => {
+describe('buildTree', () => {
+  it('base case', () => {
     const containers: Container[] = [
       {
-        id: "1",
+        id: '1',
         parentId: null,
       },
     ];
 
     const leafs: Leaf[] = [
       {
-        id: "1",
+        id: '1',
         parentId: null,
       },
     ];
     expect(
       buildTree({
         containers,
-        containerIdMember: "id",
-        containerParentMember: "parentId",
+        containerIdMember: 'id',
+        containerParentMember: 'parentId',
         leafs,
-        leafParentMember: "parentId",
+        leafParentMember: 'parentId',
       })
     ).toMatchInlineSnapshot(`
       {
@@ -58,30 +58,30 @@ describe("buildTree", () => {
     `);
   });
 
-  it("nesting", () => {
+  it('nesting', () => {
     const containers: Container[] = [
       {
-        id: "1",
+        id: '1',
         parentId: null,
       },
       {
-        id: "2",
-        parentId: "1",
+        id: '2',
+        parentId: '1',
       },
     ];
 
     const leafs: Leaf[] = [
       {
-        id: "1",
-        parentId: "2",
+        id: '1',
+        parentId: '2',
       },
     ];
     const tree = buildTree({
       containers,
-      containerIdMember: "id",
-      containerParentMember: "parentId",
+      containerIdMember: 'id',
+      containerParentMember: 'parentId',
       leafs,
-      leafParentMember: "parentId",
+      leafParentMember: 'parentId',
     });
     expect(tree).toMatchInlineSnapshot(`
       {
@@ -115,7 +115,7 @@ describe("buildTree", () => {
         "type": "root",
       }
     `);
-    const node2 = pullNode(tree, "id", "2");
+    const node2 = pullNode(tree, 'id', '2');
     expect(node2).toMatchInlineSnapshot(`
       {
         "node": {
